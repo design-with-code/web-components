@@ -64,6 +64,7 @@ With the introduction of auto layouts, Figma has made it much easier for designe
 The code equivalent to auto layout is the CSS flexbox, which is almost a 1:1 translation of the auto layout properties into respective CSS properties. In the following diagram, you can see how the auto layout translates into the CSS properties flex-direction and align-items.
 
 ![Column vs  row layout](https://github.com/design-with-code/web-components/assets/46745939/b3e46db3-1331-497b-9dc9-2bd479dd3d88)
+
 *Figure 1 – Example how Figma’s auto layout translates into CSS flexbox*
 
 As you can see, the auto layout is translated into the CSS property flex, which is the flexbox layout that can dynamically arrange elements into either a row (default) or a column, defined by the CSS property flex-direction. The beauty of both the flexbox and the auto layout is that by controlling the dimensions of the container, the elements within are laid out automatically by distributing the available space based on rules that can be controlled via CSS. This way, designs can adjust to different screen sizes automatically within certain ranges.
@@ -75,6 +76,7 @@ I must admit that I find this super confusing even though it is logical, especia
 While you are in Figma, all this is nicely hidden away, and if you base your prototype on your design specifications, looking into Figma’s code perspective helps you create the correct layouts.
 
 ![Alignment](https://github.com/design-with-code/web-components/assets/46745939/e0655e3a-f988-4022-ab0f-8830f984cf3e)
+
 *Figure 2 – Flexbox properties can be controlled via the auto layout properties in an intuitive way.*
 
 If you work with Figma, always aim to create a flexible layout and a meaningful component structure. This will make it easier for engineers to transfer the designs into code and also help you to prepare prototypes.

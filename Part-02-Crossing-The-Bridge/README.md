@@ -24,14 +24,12 @@ The same properties should be also available in the design components – with t
 * **Aggregations** (also: slots, children) – These are usually references to other elements that can be embedded into the parent component. Some components, like panels, are primarily designed to be containers for other elements. For more complex components like tables, different parts of the component are defined as nested elements that can be put into specific slots.
 This nesting is more difficult to control in design tools like Figma. As a result, many design libraries keep containers completely open and offer a list of items that can be hidden. Alternatively, they make use of a “swap instance” feature, where placeholders can be replaced by custom components.
 There are advantages to each of these options and in many cases the best approach is to pick one option and stick with it. But this is definitely one of the areas where it can become extremely hard to keep design component libraries in sync with their implementation.
-* **Methods** (also: functions) – Methods are pieces of logic that can be called from outside a component.
+* **Methods** (also: functions) – Methods are pieces of logic that can be called from outside a component. Design tools don’t usually support modeling methods. Instead, where methods affect properties, you should either expose the properties or offer variants of the component. Methods might also become relevant in an interactive prototype. In this case, it’s up to the product designer to ensure that the design is aligned with the implementation.
   * So-called “getter” and “setter” methods are typically used to access properties, especially when setting a property requires some logic to transform or validate the data. Otherwise, properties are accessed directly. Methods can require arguments, which must be supplied to the method to be executed. This might be a value you want to set, like setEnabled(true), where true is the argument.
   * Other methods can trigger behavior that is built into a component. This might go beyond just setting a property, like opening a popover.
-Design tools don’t usually support modeling methods. Instead, where methods affect properties, you should either expose the properties or offer variants of the component. Methods might also become relevant in an interactive prototype. In this case, it’s up to the product designer to ensure that the design is aligned with the implementation.
-* **Events** (also: call-back) – Events are triggered by the component, either when a user interacts with the component or when the code changes the properties. Events describe the interactive behavior of a component, or to be more precise, the interactions to which a component reacts. The actual behavior is then triggered by the event and can either be part of the component’s inbuilt behavior or part of the component’s behavior in your application.
+* **Events** (also: call-back) – Events are triggered by the component, either when a user interacts with the component or when the code changes the properties. Events describe the interactive behavior of a component, or to be more precise, the interactions to which a component reacts. The actual behavior is then triggered by the event and can either be part of the component’s inbuilt behavior or part of the component’s behavior in your application. Design tools offer different levels of event handling. The interactive behavior within the component should be in sync with the interactive behavior of the implementation. However, the extent to which components can react to non-standard interactions is limited (for example, resizing or overflow). This will often need to be managed by using different component variants. The interactive behavior of a component in a prototype relies on the same set of standard interactions and must be handled by the designer to ensure the behavior is consistent with the actual code.
   * In design libraries, the inbuilt component behavior is taken care of by the people who create the library and can’t usually be influenced from the outside. One example is the check/uncheck behavior of a checkbox (Figma tutorial in interactive components).
   * If you are building an interactive prototype and want to depict component behavior defined in your application, the variety of events you can use is determined by the design tool. Figma offers a set of standard triggers that can be used to control the prototype, such as “on click”, “on drag”, and so on. But these events are generic and have no deeper understanding of the component itself.
-Design tools offer different levels of event handling. The interactive behavior within the component should be in sync with the interactive behavior of the implementation. However, the extent to which components can react to non-standard interactions is limited (for example, resizing or overflow). This will often need to be managed by using different component variants. The interactive behavior of a component in a prototype relies on the same set of standard interactions and must be handled by the designer to ensure the behavior is consistent with the actual code.
 
 Especially when it comes to interactivity, design tools face the difficult choice of going down the rabbit hole of mimicking code and exacerbating complexity, or keeping things simple. This is the exact point where prototyping with code becomes the better alternative.
 
@@ -65,7 +63,8 @@ With the introduction of auto layouts, Figma has made it much easier for designe
 
 The code equivalent to auto layout is the CSS flexbox, which is almost a 1:1 translation of the auto layout properties into respective CSS properties. In the following diagram, you can see how the auto layout translates into the CSS properties flex-direction and align-items.
 
-!--- IMAGE HERE
+![Column vs  row layout](https://github.com/design-with-code/web-components/assets/46745939/b3e46db3-1331-497b-9dc9-2bd479dd3d88)
+*Figure 1 – Example how Figma’s auto layout translates into CSS flexbox*
 
 As you can see, the auto layout is translated into the CSS property flex, which is the flexbox layout that can dynamically arrange elements into either a row (default) or a column, defined by the CSS property flex-direction. The beauty of both the flexbox and the auto layout is that by controlling the dimensions of the container, the elements within are laid out automatically by distributing the available space based on rules that can be controlled via CSS. This way, designs can adjust to different screen sizes automatically within certain ranges.
 
@@ -75,7 +74,8 @@ I must admit that I find this super confusing even though it is logical, especia
 
 While you are in Figma, all this is nicely hidden away, and if you base your prototype on your design specifications, looking into Figma’s code perspective helps you create the correct layouts.
 
-!--- IMAGE HERE
+![Alignment](https://github.com/design-with-code/web-components/assets/46745939/e0655e3a-f988-4022-ab0f-8830f984cf3e)
+*Figure 2 – Flexbox properties can be controlled via the auto layout properties in an intuitive way.*
 
 If you work with Figma, always aim to create a flexible layout and a meaningful component structure. This will make it easier for engineers to transfer the designs into code and also help you to prepare prototypes.
 

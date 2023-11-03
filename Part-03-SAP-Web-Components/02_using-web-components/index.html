@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US" style="height: 100%">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Simple Setup</title>
+
+    <!-- Reference to the Latest stable release of ui5-webcomponents -->
+    <script type="module"
+        src="https://sap.github.io/ui5-webcomponents/assets/js/ui5-webcomponents/bundle.esm.js"></script>
+
+    <!-- Initial setting for the theme -->
+    <script data-ui5-config type="application/json">
+        {
+        "theme": "sap_horizon"
+        }
+    </script>
+    <style>
+        .margin-top{
+            margin-top: 1rem;
+        }
+        
+        .form{
+            display:flex; 
+            flex-direction: column; 
+            gap: 1rem;
+        }
+
+        .form-element{
+            display:flex; 
+            flex-direction: column; 
+            gap: 0.25rem;
+        }
+        
+        .text{
+            font-family: var(--sapFontFamily);
+            font-size: var(--sapFontSize);
+            color: var(--sapTextColor);
+        }
+    </style>
+
+</head>
+
+<body style="height: 100%; margin: 0;">
+    <ui5-page style="height:100%" background-design="Solid">
+        <ui5-bar slot="header" design="Header">
+            <ui5-title slot="startContent" level="H4">My App</ui5-title>
+        </ui5-bar>
+        <ui5-panel class="margin-top" header-text="Address" fixed>
+            <div class="form">
+                <div class="form-element">
+                    <ui5-label show-colon>Name</ui5-label>
+                    <div class="text">John Doe</div>
+                </div>
+                <div class="form-element">
+                    <ui5-label show-colon>Street</ui5-label>
+                    <div class="text">Main Street 1</div>
+                </div>
+                <div class="form-element">
+                    <ui5-label show-colon>City</ui5-label>
+                    <div class="text">Big City</div>
+                </div>
+                <div class="form-element">
+                    <ui5-label show-colon>ZIP Code</ui5-label>
+                    <div class="text">12345</div>
+                </div>
+            </div>
+        </ui5-panel>
+        <ui5-bar slot="footer" design="Footer">
+            <ui5-button slot="endContent" design="Emphasized">OK</ui5-button>
+            <ui5-button slot="endContent" design="Transparent">Cancel</ui5-button>
+        </ui5-bar>
+    </ui5-page>
+</body>
+
+
+</html>

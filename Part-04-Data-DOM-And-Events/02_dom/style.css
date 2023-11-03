@@ -1,0 +1,39 @@
+/**
+* style.css
+* 
+* Application stylesheet.
+*/
+
+/** 
+* Style to remove the padding from the panel 
+* This is accessing a part of the shadow dom which is exposed under the name "content"
+*/
+ui5-panel.no-padding::part(content){
+    padding: 0;
+}
+
+/* Margin on top of containers in the application */
+.margin-top{
+    margin-top: 1rem;
+}
+
+/* Flex column layout for a form container */
+.form{
+    display:flex; 
+    flex-direction: column; 
+    gap: 1rem;
+}
+
+/* Flex column layout for the individual label value pairs */
+.form-element{
+    display:flex; 
+    flex-direction: column; 
+    gap: 0.25rem;
+}
+
+/* Text style from the horizon theme for regular ui texts */
+.text{
+    font-family: var(--sapFontFamily);
+    font-size: var(--sapFontSize);
+    color: var(--sapTextColor);
+}

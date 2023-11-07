@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Simple Setup</title>
+    <title>Button with Complex Content</title>
 
     <!-- Reference to the Latest stable release of ui5-webcomponents -->
     <script type="module"
@@ -21,7 +21,12 @@
 </head>
 
 <body>
-    <ui5-button>My First Button</ui5-button>
+    <ui5-button>
+        <div style="display:flex; flex-direction: column;align-items: center;">
+            <ui5-icon name="accept"></ui5-icon>
+            <div>Accept</div>
+        </div>
+    </ui5-button>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-![image](https://github.com/design-with-code/web-components/assets/46745939/a50a6d38-fe3c-438a-beaf-5784a6c09312)
+<img src="https://sap.github.io/ui5-webcomponents/assets/images/sb-logo.png" height="100px"/>
 
 # Designing with Code - SAP Web Components
 

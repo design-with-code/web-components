@@ -1,56 +1,78 @@
 <!DOCTYPE html>
+
+<!-- IMPORTANT: The ui5-page is a bit tricky. It only shows if all containers are set to 100%, this includes the HTML element itself. -->
 <html lang="en-US" style="height: 100%">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Application Page</title>
-
+    <title>04 - Application Page</title>
     <!-- Reference to the Latest stable release of ui5-webcomponents -->
     <script type="module"
         src="https://sap.github.io/ui5-webcomponents/assets/js/ui5-webcomponents/bundle.esm.js"></script>
-
     <!-- Initial setting for the theme -->
     <script data-ui5-config type="application/json">
         {
         "theme": "sap_horizon"
         }
     </script>
+
+    <!-- Style definitions are placed in a style tag in the header -->
     <style>
+        /* Gap between panel and title */
         .margin-top{
             margin-top: 1rem;
         }
         
+        /* Makes surce the form fields are placed underneath of each other */
         .form{
             display:flex; 
             flex-direction: column; 
             gap: 1rem;
         }
 
+        /* Each form element also is a container with a label on top of the value / input field */
         .form-element{
             display:flex; 
             flex-direction: column; 
             gap: 0.25rem;
         }
         
+        /* As there is no TEXT element, we need to apply the text styles */
         .text{
             font-family: var(--sapFontFamily);
             font-size: var(--sapFontSize);
             color: var(--sapTextColor);
         }
+
     </style>
 
 </head>
 
+<!-- The ui5-page requires all containers to be set to 100%. The margin propery removes the margin that shows in Chrome. -->
 <body style="height: 100%; margin: 0;">
+
+    <!-- The ui5-page, again set to 100% height. Use the solid background otherwise you would need to set the body background as well.  -->
     <ui5-page style="height:100%" background-design="Solid">
+
+        <!-- Use a ui5-bar as header element and put it into the header slot -->
         <ui5-bar slot="header" design="Header">
+
+            <!-- The ui5-title element. The levels determine the size. -->
             <ui5-title slot="startContent" level="H4">My App</ui5-title>
+
         </ui5-bar>
 
+        <!-- The Panel that contains the form. The FIXED removes the posibility to collapse the panel -->
         <ui5-panel class="margin-top" header-text="Address" fixed>
+
+            <!-- The form container -->
             <div class="form">
+
+                <!-- Repeating the form elements -->
                 <div class="form-element">
+                    <!-- Label with colon at the end -->
                     <ui5-label show-colon>Name</ui5-label>
+                    <!-- The value as display text -->
                     <div class="text">John Doe</div>
                 </div>
                 <div class="form-element">
@@ -68,6 +90,7 @@
             </div>
         </ui5-panel>
 
+        <!-- Another ui5-bar as footer with two buttons assigned to the ENDCONTAINER slot on the right -->
         <ui5-bar slot="footer" design="Footer">
             <ui5-button slot="endContent" design="Emphasized">OK</ui5-button>
             <ui5-button slot="endContent" design="Transparent">Cancel</ui5-button>

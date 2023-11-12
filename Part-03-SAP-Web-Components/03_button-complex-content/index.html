@@ -3,29 +3,32 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Button with Complex Content</title>
-
+    <title>03 - Button with Complex Content</title>
     <!-- Reference to the Latest stable release of ui5-webcomponents -->
     <script type="module"
         src="https://sap.github.io/ui5-webcomponents/assets/js/ui5-webcomponents/bundle.esm.js"></script>
-
     <!-- Initial setting for the theme -->
     <script data-ui5-config type="application/json">
         {
         "theme": "sap_horizon"
         }
     </script>
-
-    
-
 </head>
 
 <body>
+    <!-- Using the UI5 Button -->
     <ui5-button>
-        <div style="display:flex; flex-direction: column;align-items: center;">
+        
+        <!-- Everything inside the start- and end-element goes into the DEFAULT SLOT -->
+
+        <!-- Create a DIV that contains the actual elements. The CSS creates a flex-layout where the elements are placed on top of each other -->
+        <div style="display:flex; flex-direction: column; align-items: center;">
+            <!-- Place an icon with a tickmark -->
             <ui5-icon name="accept"></ui5-icon>
+            <!-- Just a text, needs to be wrapped in an element otherwise text content and elements would be mixed inside of the button -->
             <div>Accept</div>
         </div>
+        
     </ui5-button>
 </body>
 

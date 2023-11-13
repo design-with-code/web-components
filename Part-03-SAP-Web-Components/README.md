@@ -8,5 +8,7 @@ In this third article, I want to give you an easy start into the development of 
 
 ## Contents
 
-* [01_simple-setup](./01_simple-setup/index.html): Simple Setup of a HTML page that can show UI5 web components.
-* [02_using-web-components](./02_using-web-components/index.html): Simple static one page application.
+* [01_button](./01_button/index.html): Simple Setup of a HTML page that can show UI5 web components.
+* [02_button-designs](./02_button-designs/index.html): Using the ``design`` property to create different types of buttons.
+* [03_button-complex-contentl](./03_button-complex-content/index.html): Showing the principle of slots and how you could use this create extensions of the standard component.
+* [04_application-page](./04_application-page/index.html): The first application.

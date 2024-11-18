@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US" style="height: 100%">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Address List</title>
+
+    <!-- Reference to UI5 Web Component libraries -->
+    <!-- IMPORTANT: This example uses the old table which hast to be imported from the compatibility library  -->
+    <!-- Reference to UI5 Web Component libraries -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@ui5/webcomponents/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents@2.4.0/",
+        "@ui5/webcomponents-ai/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-ai@2.4.0/",
+        "@ui5/webcomponents-fiori/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-fiori@2.4.0/",
+        "@ui5/webcomponents-compat/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-compat@2.4.0/",
+        "@ui5/webcomponents-base/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-base@2.4.0/",
+        "@ui5/webcomponents-icons/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-icons@2.4.0/",
+        "@ui5/webcomponents-localization/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-localization@2.4.0/",
+        "@ui5/webcomponents-theming/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-theming@2.4.0/",
+        "lit-html":"https://cdn.jsdelivr.net/npm/lit-html@2",
+        "lit-html/":"https://cdn.jsdelivr.net/npm/lit-html@2/",
+        "@zxing/library/":"https://cdn.jsdelivr.net/npm/@zxing/library@0/"
+      }
+    }
+    </script>
+    <!-- Reference to the local JS file with the imports -->
+    <script type="module" src="./main.js"></script>
+
+    <!-- References to the other files -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+
+</head>
+
+<body style="height: 100%; margin: 0;">
+    <ui5-page style="height:100%" background-design="Solid">
+        <ui5-bar slot="header" design="Header">
+            <ui5-title slot="startContent" level="H4">Address List</ui5-title>
+        </ui5-bar>
+
+        <!-- Panel that contains the table -->
+        <ui5-panel id="addressPanel" class="margin-top no-padding" header-text="Address" fixed>
+
+            <!-- Table to display the address list-->
+            <ui5-table id="addressTable">
+                <!-- Definition of the columns -->
+                <ui5-table-column slot="columns">Name</ui5-table-column>
+                <ui5-table-column slot="columns">Street</ui5-table-column>
+                <ui5-table-column slot="columns">City</ui5-table-column>
+                <ui5-table-column slot="columns">ZIP</ui5-table-column>
+                <ui5-table-column slot="columns">Ads</ui5-table-column>
+                <!-- Table rows are added programmatically -->
+            </ui5-table>
+        </ui5-panel>
+    </ui5-page>
+</body>
+
+
+</html>

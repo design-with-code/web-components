@@ -1,4 +1,7 @@
+
 var selectedVariable;
+var types = ["color", "background-color", "text-color", "font", "font-family", "font-size", "text-shadow", "shadow", "text-color", "other"];
+
 
 function updateTable(list) {
 
@@ -41,32 +44,32 @@ function createTableRow(variable) {
     row.interactive = true;
 
     const nameCell = document.createElement("ui5-table-cell");
-    nameCell.innerHTML = variable.name;
+    nameCell.innerHTML = `<span style='font-family:var(--sapFontSemiboldDuplexFamily);'>${variable.name}</span>`;
     row.appendChild(nameCell);
 
     const valueCell = document.createElement("ui5-table-cell");
-    valueCell.innerHTML = variable.value;
+    valueCell.innerHTML = `<span style='font-family:var(--sapContent_MonospaceFontFamily);'>${variable.value}</span>`;
     row.appendChild(valueCell);
 
     const exampleCell = document.createElement("ui5-table-cell");
     if (variable.type == "color" || variable.type == "background-color") {
         exampleCell.innerHTML = `<div style='background-color:${variable.value}; border: 1px solid var(--sapNeutralBorderColor); min-width:10rem;'>&nbsp;</div>`;
     }else if (variable.type == "text-color") {
-        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem;color:var(--${variable.name})'>Text Color</div>`;
+        let light = chroma(variable.value).luminance() > 0.5;
+        exampleCell.innerHTML = `<div style='background-color:var(--${!light ? 'sapBaseColor' : 'sapNeutralTextColor'}); min-width:10rem;color:var(--${variable.name}); text-align: center;'>Text Color</div>`;
     }else if (variable.type == "shadow") {
         exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem;box-shadow:${variable.value}'>&nbsp;</div>`;
     }else if (variable.type == "text-shadow") {
-        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem;text-shadow:${variable.value}'>Text Shadow</div>`;
+        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem;text-shadow:${variable.value}; text-align: center;'>Text Shadow</div>`;
     }else if (variable.type == "font-family") {
-        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem; font-family:var(--${variable.name});'>Font Family</div>`;
+        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem; font-family:var(--${variable.name}); text-align: center;'>Font Family</div>`;
     }else if (variable.type == "font-size") {
-        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem; font-size:var(--${variable.name});'>Font Size</div>`;
+        exampleCell.innerHTML = `<div style='background-color:var(--sapBaseColor); min-width:10rem; font-size:var(--${variable.name}); text-align: center;'>Font Size</div>`;
     }
     row.appendChild(exampleCell);
 
     const typeCell = document.createElement("ui5-table-cell");
-    const types = ["color", "background-color", "text-color", "font", "font-family", "font-size", "text-shadow", "shadow", "text-color"];
-    typeCell.innerHTML = `<ui5-tag design='Set1' color-scheme='${types.indexOf(variable.type) + 1}'>${variable.type}</ui5-tag>`;
+    typeCell.innerHTML = `<ui5-tag design='Set2' color-scheme='${types.indexOf(variable.type) + 1}'>${variable.type}</ui5-tag>`;
     row.appendChild(typeCell);
 
 
@@ -151,6 +154,20 @@ onload = () => {
                 toast.open = true;
             })
 
+    })
+
+    let tagSelection = document.getElementById("tagSelection");
+    types.forEach((type) => {
+        const option = document.createElement("ui5-mcb-item");
+        option.text = type;
+        tagSelection.appendChild(option);
+    })
+    tagSelection.addEventListener("selection-change", (e) => {
+        let filter = [];        
+        e.detail.items.forEach((entry) => {
+            filter.push(entry.text);
+        });
+        updateTable(vl.getMultiFilteredList(filter));
     })
 
 }

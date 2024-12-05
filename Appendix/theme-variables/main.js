@@ -6,6 +6,9 @@ import "@ui5/webcomponents/dist/Tag.js";
 import "@ui5/webcomponents/dist/Panel.js";
 import "@ui5/webcomponents/dist/Input.js";
 import "@ui5/webcomponents/dist/Toast.js";
+import "@ui5/webcomponents/dist/Link.js";
+import "@ui5/webcomponents/dist/MultiComboBox.js";
+import "@ui5/webcomponents/dist/MultiComboBoxItem.js";
 
 import "@ui5/webcomponents/dist/Breadcrumbs.js";
 import "@ui5/webcomponents/dist/BreadcrumbsItem.js";

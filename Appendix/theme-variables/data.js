@@ -56,6 +56,14 @@ class VariablesList {
         return this.variablesList.filter((variable) => variable.name.toLowerCase().indexOf(filter.toLowerCase()) >= 0);
     }
 
+    getMultiFilteredList(filter) {
+        if (filter == "" || filter == null) {
+            return this.variablesList;
+        }
+        return this.variablesList.filter((variable) => filter.includes(variable.type));
+    }
+
+
     removeVariable(id) {
         var storedVariable = this.variablesList.find((variable) => variable.id == id);
         if (storedVariable) {
@@ -88,6 +96,8 @@ class VariablesList {
             return "shadow";
         } else if (name.endsWith("_TextColor")) {
             return "text-color";
+        } else {
+            return "other";
         }
 
     }

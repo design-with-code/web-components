@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Table in Dynamic Page</title>
+    <title>Theme Variables</title>
 
     <!-- Reference to UI5 Web Component libraries -->
     <!-- IMPORTANT: This example uses the old table which hast to be imported from the compatibility library  -->
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="index.js"></script>
     <script src="data.js"></script>
+    <script src="chroma.min.js"></script>
 
 </head>
 
@@ -38,50 +39,31 @@
 
     <ui5-dynamic-page id="page">
         <ui5-dynamic-page-title slot="titleArea">
-            <ui5-breadcrumbs slot="breadcrumbs">
-                <ui5-breadcrumbs-item href="">Breadcrumb </ui5-breadcrumbs-item>
-                <ui5-breadcrumbs-item href="">Breadcrumb </ui5-breadcrumbs-item>
-            </ui5-breadcrumbs>
                     
             <!-- Regular -->
             <div slot="heading" class="heading">
-                <ui5-title size="H2" slot="heading">Heading</ui5-title>
+                <ui5-title size="H2" slot="heading">Theme Variables</ui5-title>
                 <ui5-tag>Tag</ui5-tag>
             </div>
-            <p class="text" slot="subheading">Subheading</p>
+            <ui5-link slot="subheading" href="https://github.com/SAP/theming-base-content/blob/master/content/Base/baseLib/sap_horizon/variables.json">Theming Base Content</ui5-link>
             
-            <!-- Snapped -->
-            <div slot="snappedHeading" class="snapped-heading">
-                <ui5-avatar size="XS" initials="AV"></ui5-avatar>
-                <ui5-title size="H3" slot="snappedHeading">Snapped Heading</ui5-title>
-                <ui5-tag>Tag</ui5-tag>
-            </div>
-            <p class="text" slot="snappedSubheading">Snapped Subheading</p>
-
             <!-- Toolbars -->
-            <ui5-toolbar slot="navigationBar" design="Transparent">
-                <ui5-toolbar-button design="Transparent" icon="action-settings"></ui5-toolbar-button>
-                <ui5-toolbar-button design="Transparent" icon="share"></ui5-toolbar-button>
-             </ui5-toolbar>
 
              <ui5-toolbar slot="actionsBar" design="Transparent">
                 <ui5-toolbar-button design="Emphasized" text="Action"></ui5-toolbar-button>
                 <ui5-toolbar-button text="Action"></ui5-toolbar-button>
              </ui5-toolbar>
 
-            
         </ui5-dynamic-page-title>
-        <ui5-dynamic-page-header slot="headerArea">
-            <ui5-avatar initials="AV" size="M"></ui5-avatar>
-        </ui5-dynamic-page-header>
         
-        <ui5-panel fixed>
+        <ui5-panel style="height:85vH;" fixed>
             <div slot="header" class="panel-title">
                 <ui5-title id="tableTitle" size="H4">CSS Variables (0)</ui5-title>
                 <ui5-input id="filterInput" placeholder="Filter" show-clear-icon></ui5-input>
+                <ui5-multi-combobox id="tagSelection" placeholder="Filter by Type" show-select-all></ui5-multi-combobox>
             </div>
             <ui5-table id="variablesTable" overflow-mode="Popin">
-                <ui5-table-header-row slot="headerRow" interactive>
+                <ui5-table-header-row slot="headerRow" sticky>
                     <ui5-table-header-cell id="col1">Name</ui5-table-header-cell>
                     <ui5-table-header-cell id="col2">Value</ui5-table-header-cell>
                     <ui5-table-header-cell id="col3">Example</ui5-table-header-cell>

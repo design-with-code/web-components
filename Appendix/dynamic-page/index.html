@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US" style="height: 100%">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Table in Dynamic Page</title>
+
+    <!-- Reference to UI5 Web Component libraries -->
+    <!-- IMPORTANT: This example uses the old table which hast to be imported from the compatibility library  -->
+    <script type="importmap">
+        {
+          "imports": {
+            "@ui5/webcomponents/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents@2.4.0/",
+            "@ui5/webcomponents-ai/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-ai@2.4.0/",
+            "@ui5/webcomponents-fiori/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-fiori@2.4.0/",
+            "@ui5/webcomponents-compat/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-compat@2.4.0/",
+            "@ui5/webcomponents-base/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-base@2.4.0/",
+            "@ui5/webcomponents-icons/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-icons@2.4.0/",
+            "@ui5/webcomponents-localization/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-localization@2.4.0/",
+            "@ui5/webcomponents-theming/":"https://cdn.jsdelivr.net/npm/@ui5/webcomponents-theming@2.4.0/",
+            "lit-html":"https://cdn.jsdelivr.net/npm/lit-html@2",
+            "lit-html/":"https://cdn.jsdelivr.net/npm/lit-html@2/",
+            "@zxing/library/":"https://cdn.jsdelivr.net/npm/@zxing/library@0/"
+          }
+        }
+    </script>
+    <!-- Reference to the local JS file with the imports -->
+    <script type="module" src="./main.js"></script>
+
+    <!-- References to the other files -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+
+</head>
+
+<body style="height: 100%; margin: 0;">
+
+    <ui5-dynamic-page id="page">
+        <ui5-dynamic-page-title slot="titleArea">
+            <ui5-breadcrumbs slot="breadcrumbs">
+                <ui5-breadcrumbs-item href="">Breadcrumb </ui5-breadcrumbs-item>
+                <ui5-breadcrumbs-item href="">Breadcrumb </ui5-breadcrumbs-item>
+            </ui5-breadcrumbs>
+                    
+            <!-- Regular -->
+            <div slot="heading" class="heading">
+                <ui5-title size="H2" slot="heading">Heading</ui5-title>
+                <ui5-tag>Tag</ui5-tag>
+            </div>
+            <p class="text" slot="subheading">Subheading</p>
+            
+            <!-- Snapped -->
+            <div slot="snappedHeading" class="snapped-heading">
+                <ui5-avatar size="XS" initials="AV"></ui5-avatar>
+                <ui5-title size="H3" slot="snappedHeading">Snapped Heading</ui5-title>
+                <ui5-tag>Tag</ui5-tag>
+            </div>
+            <p class="text" slot="snappedSubheading">Snapped Subheading</p>
+
+            <!-- Toolbars -->
+            <ui5-toolbar slot="navigationBar" design="Transparent">
+                <ui5-toolbar-button design="Transparent" icon="action-settings"></ui5-toolbar-button>
+                <ui5-toolbar-button design="Transparent" icon="share"></ui5-toolbar-button>
+             </ui5-toolbar>
+
+             <ui5-toolbar slot="actionsBar" design="Transparent">
+                <ui5-toolbar-button design="Emphasized" text="Action"></ui5-toolbar-button>
+                <ui5-toolbar-button text="Action"></ui5-toolbar-button>
+             </ui5-toolbar>
+
+            
+        </ui5-dynamic-page-title>
+        <ui5-dynamic-page-header slot="headerArea">
+            <ui5-avatar initials="AV" size="M"></ui5-avatar>
+        </ui5-dynamic-page-header>
+
+        <ui5-title id="addressTitle" size="H4">Address (0)</ui5-title>
+        <ui5-table id="addressTable" overflow-mode="Popin">
+            <ui5-table-header-row slot="headerRow" interactive>
+                <ui5-table-header-cell id="col1">Name</ui5-table-header-cell>
+                <ui5-table-header-cell id="col2">Street</ui5-table-header-cell>
+                <ui5-table-header-cell id="col3">City</ui5-table-header-cell>
+                <ui5-table-header-cell id="col4">Zip</ui5-table-header-cell>
+                <ui5-table-header-cell id="col5">Ads</ui5-table-header-cell>
+            </ui5-table-header-row>
+    
+        </ui5-table>
+
+    </ui5-dynamic-page>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,68 @@
+/**
+* style.css - Stylesheet
+*/
+
+.margin-top{
+    margin-top: 1rem;
+}
+
+/** 
+* Style to remove the padding from the panel 
+* This is accessing a part of the shadow dom which is exposed under the name "content"
+*/
+ui5-panel.no-padding::part(content){
+    padding: 0;
+}
+
+.form{
+    display:flex; 
+    flex-direction: column; 
+    gap: 1rem;
+}
+
+.form-element{
+    display:flex; 
+    flex-direction: column; 
+    gap: 0.25rem;
+}
+
+.text{
+    display: inline-block;
+    font-family: var(--sapFontFamily);
+    font-size: var(--sapFontSize);
+    color: var(--sapTextColor);
+    line-height: normal;
+    white-space: pre-line;
+    word-wrap: break-word;
+    cursor: text;
+    margin: 0;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+}
+
+.snapped-heading {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+}
+
+.header-cell:hover{
+    background-color: var(--sapHoverColor);
+}
+
+.header-cell:active{
+    background-color: var(--sapActiveColor);
+}
+
+.panel-title{
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+}
